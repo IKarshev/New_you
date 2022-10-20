@@ -23,7 +23,6 @@ $(function(){//price_list
         event.preventDefault();
 
         $(".price_list").removeClass("show").addClass("hide").hide();
-
         $("body").css('height', "unset" );
         $("body").css('overflow-y', "unset" );
 
@@ -34,7 +33,6 @@ $(function(){//price_list
         event.preventDefault();
 
         $(".price_list").show().removeClass("hide").addClass("show");
-
         $("body").css('height', $(".price_list").css('height') );
         $("body").css('overflow-y', "scroll" );
         $("body").css('position', "relative" );
