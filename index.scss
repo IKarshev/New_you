@@ -246,9 +246,11 @@ header{
     transition: 1s;
     top: 0;
     &.show{
+        display: block;
         right: 0;
     }
     &.hide{
+        display: none;
         right: calc( -100% - 30px );
     }
     .price_list_header{
