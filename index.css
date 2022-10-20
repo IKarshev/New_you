@@ -295,10 +295,12 @@ header.mobile .container .telephone_number:hover {
 }
 
 .price_list.show {
+  display: block;
   right: 0;
 }
 
 .price_list.hide {
+  display: none;
   right: calc( -100% - 30px);
 }
 
