@@ -17,23 +17,35 @@ $(function(){//burger
 })
 
 $(function(){//price_list
-    $(".toggle_price_list").on('click', function(event){
+    $(".price_list").hide();
+
+    $(".close_price_list").on('click', function(event){
         event.preventDefault();
 
-        $(".price_list").toggleClass("hide");
-        $(".price_list").toggleClass("show");
+        $(".price_list").addClass("hide");
+        $(".price_list").removeClass("show");
 
-        if ( $(".price_list").hasClass("show") ){
-            $("body").css('height', $(".price_list").css('height') );
-            $("body").css('overflow-y', "scroll" );
-            $("body").css('position', "relative" );
-        } else{
-            $("body").css('height', "unset" );
-            $("body").css('overflow-y', "unset" );
-        }
+        $("body").css('height', "unset" );
+        $("body").css('overflow-y', "unset" );
+
+        if ( $(window).scrollTop() > 100 ){$("html, body").animate({scrollTop: 0}, 1000);}
+        $(".price_list").hide();
+    });
+
+    $(".open_price_list").on('click', function(event){
+        event.preventDefault();
+
+        $(".price_list").show();
+        $(".price_list").removeClass("hide");
+        $(".price_list").addClass("show");
+
+        $("body").css('height', $(".price_list").css('height') );
+        $("body").css('overflow-y', "scroll" );
+        $("body").css('position', "relative" );
 
         if ( $(window).scrollTop() > 100 ){$("html, body").animate({scrollTop: 0}, 1000);}
     });
+
 })
 
 $(function(){//menu goto

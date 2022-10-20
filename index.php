@@ -18,7 +18,7 @@
     <div class="price_list hide">
         <div class="price_list_header">
             <div class="img_cont">
-                <a class="toggle_price_list" href="">
+                <a class="close_price_list" href="">
                     <img src="./media/ikons/cross.svg" alt="">
                 </a>
             </div>
@@ -101,7 +101,7 @@
 
 
     <div class="banner">
-        <a href="" class="side toggle_price_list">
+        <a href="" class="side open_price_list">
             <h1>Наши услуги</h1>
         </a>
         <a href="" class="side">
@@ -121,7 +121,7 @@
                 <p>В салоне "Новая ты"абсолютно все направлено на то,
                     чтобы каждый посетитель почувствовал себя самым
                     желанным гостем, и провел время с максимумом комфорта и пользы</p>
-                <a class="toggle_price_list" href="">Ознакомится с услугами</a>
+                <a class="open_price_list" href="">Ознакомится с услугами</a>
             </div>
 
         </div>
