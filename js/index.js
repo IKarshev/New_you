@@ -22,22 +22,18 @@ $(function(){//price_list
     $(".close_price_list").on('click', function(event){
         event.preventDefault();
 
-        $(".price_list").addClass("hide");
-        $(".price_list").removeClass("show");
+        $(".price_list").removeClass("show").addClass("hide").hide();
 
         $("body").css('height', "unset" );
         $("body").css('overflow-y', "unset" );
 
         if ( $(window).scrollTop() > 100 ){$("html, body").animate({scrollTop: 0}, 1000);}
-        $(".price_list").hide();
     });
 
     $(".open_price_list").on('click', function(event){
         event.preventDefault();
 
-        $(".price_list").show();
-        $(".price_list").removeClass("hide");
-        $(".price_list").addClass("show");
+        $(".price_list").show().removeClass("hide").addClass("show");
 
         $("body").css('height', $(".price_list").css('height') );
         $("body").css('overflow-y', "scroll" );
