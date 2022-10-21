@@ -104,7 +104,7 @@
         <a href="" class="side open_price_list">
             <h1>Наши услуги</h1>
         </a>
-        <a href="https://clck.ru/32HrH9" class="side">
+        <a target="_blank" href="https://clck.ru/32HrH9" class="side">
             <h1>Открыть карту</h1>
         </a>
     </div>
