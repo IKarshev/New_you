@@ -104,7 +104,7 @@
         <a href="" class="side open_price_list">
             <h1>Наши услуги</h1>
         </a>
-        <a href="" class="side">
+        <a href="https://clck.ru/32HrH9" class="side">
             <h1>Открыть карту</h1>
         </a>
     </div>
@@ -201,7 +201,7 @@
     </div>
 
     <!-- footer -->
-    <footer>
+    <footer id="contacts">
         <div class="wrapper">
             <div class="container">
 
