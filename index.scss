@@ -48,9 +48,9 @@ $eggplant: #411530;
 /* .scss option*/
 
 
-body{
-    overflow-x: hidden;
-}
+// html, body{
+//     overflow-x: hidden;
+// }
 
 .wrapper{
     width: 100%;
@@ -236,22 +236,30 @@ header{
 
 /* PRICE LIST */
 .price_list{
-    display: block;
-    box-sizing: border-box;
-
-    position: absolute;
+    position: relative;
     width: 100vw;
     z-index: 100;
-    background-color: #fff;
-    transition: 1s;
-    top: 0;
     &.show{
-        display: block;
+        overflow-x: unset;
+    }
+    &.hide {
+        overflow-x: hidden;
+    }
+    &.show .price_list_cont{
         right: 0;
     }
-    &.hide{
-        display: none;
-        right: calc( -100% - 30px );
+    &.hide .price_list_cont{
+        right: -100%;
+    }
+    .price_list_cont{
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+    
+        position: absolute;
+        background-color: #fff;
+        transition: 1s;
+        top: 0;
     }
     .price_list_header{
         width: 100%;
@@ -298,63 +306,64 @@ header{
         }
     }
 
-    #price_list .container{
-        padding: 0 24px;
-        position: relative;
-        padding-top: 150px;
-        .item_container{
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-bottom: 200px;
-            .item{
-                width: 30%;
-                &.left{
-                    transform: translateY(-150px);
-                }
-                &.right{
-                    transform: translateY(150px);
-                }
-                .heading{
-                    padding-bottom: 10px;
-                    width: 100%;
-                    border-bottom: 2px solid $black;
-                    margin-bottom: 20px;
-                    h1{
-                        @extend %heading;
-                        font-size: 36px;
-                        color: $black;
-                        line-height: 140%;
+    #price_list{
+        overflow-x: hidden;
+        .container{
+            padding: 0 24px;
+            position: relative;
+            padding-top: 150px;
+            .item_container{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 200px;
+                .item{
+                    width: 30%;
+                    &.left{
+                        transform: translateY(-150px);
                     }
-                }
-                ul{
-                    width: 100%;
-                    list-style: none;
-                    li{
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
+                    &.right{
+                        transform: translateY(150px);
+                    }
+                    .heading{
+                        padding-bottom: 10px;
                         width: 100%;
-                        max-width: 100%;
-                        @extend %subtitle;
-                        color: $black;
-                        font-size: 24px;
-                        line-height: 140%;
-
-                        margin-bottom: 12px;
-                        .title{
-                            display: block;
-                            box-sizing: border-box;
-                            padding-right: 36px;
+                        border-bottom: 2px solid $black;
+                        margin-bottom: 20px;
+                        h1{
+                            @extend %heading;
+                            font-size: 36px;
+                            color: $black;
+                            line-height: 140%;
+                        }
+                    }
+                    ul{
+                        width: 100%;
+                        list-style: none;
+                        li{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            width: 100%;
+                            max-width: 100%;
+                            @extend %subtitle;
+                            color: $black;
+                            font-size: 24px;
+                            line-height: 140%;
+    
+                            margin-bottom: 12px;
+                            .title{
+                                display: block;
+                                box-sizing: border-box;
+                                padding-right: 36px;
+                            }
                         }
                     }
                 }
             }
         }
-        
-
-    }
+    } 
 }
 /* .PRICE LIST */
 
@@ -449,6 +458,8 @@ header{
 /* swiper */
 #SlickSlider{
     margin-bottom: 150px;
+    overflow-x: hidden;
+    padding: 30px 0 70px 0;;
     .container{
         position: relative;
         .slick-track{

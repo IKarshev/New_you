@@ -16,28 +16,29 @@
     <div id="to_top_btn"></div>
 
     <div class="price_list hide">
-        <div class="price_list_header">
-            <div class="img_cont">
-                <a class="close_price_list" href="">
-                    <img src="./media/ikons/cross.svg" alt="">
-                </a>
+        <div class="price_list_cont">
+            <div class="price_list_header">
+                <div class="img_cont">
+                    <a class="close_price_list" href="">
+                        <img src="./media/ikons/cross.svg" alt="">
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="logo_cont">
-            <img src="./media/ikons/full_logo.svg" alt="">
-            <h1>Наши услуги</h1>
-        </div>
+            <div class="logo_cont">
+                <img src="./media/ikons/full_logo.svg" alt="">
+                <h1>Наши услуги</h1>
+            </div>
 
-        <div class="wrapper" id="price_list">
-            <div class="container">
+            <div class="wrapper" id="price_list">
+                <div class="container">
 
-                <? include "price_list.php"; ?>
+                    <? include "price_list.php"; ?>
 
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <header class="desktop" >

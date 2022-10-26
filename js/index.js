@@ -17,12 +17,12 @@ $(function(){//burger
 })
 
 $(function(){//price_list
-    $(".price_list").hide();
 
     $(".close_price_list").on('click', function(event){
         event.preventDefault();
 
-        $(".price_list").removeClass("show").addClass("hide").hide();
+        $(".price_list").removeClass("show");
+        $(".price_list").addClass("hide");
         $("body").css('height', "unset" );
         $("body").css('overflow-y', "unset" );
 
@@ -32,7 +32,9 @@ $(function(){//price_list
     $(".open_price_list").on('click', function(event){
         event.preventDefault();
 
-        $(".price_list").show().removeClass("hide").addClass("show");
+        $(".price_list").removeClass("hide");
+        $(".price_list").addClass("show");
+
         $("body").css('height', $(".price_list").css('height') );
         $("body").css('overflow-y', "scroll" );
         $("body").css('position', "relative" );
