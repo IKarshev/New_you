@@ -134,49 +134,7 @@
 
             <div class="slider">
 
-                <div class="slider__item">
-                    <div class="slide_cont">
-                        <div class="img_cont"><img src="" alt=""></div>
-                        <div class="text_cont">
-                            <h1>Массаж</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Optio tempore dolore praesentium.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider__item">
-                    <div class="slide_cont">
-                        <div class="img_cont"><img src="" alt=""></div>
-                        <div class="text_cont">
-                            <h1>Массаж</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Optio tempore dolore praesentium.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider__item">
-                    <div class="slide_cont">
-                        <div class="img_cont"><img src="" alt=""></div>
-                        <div class="text_cont">
-                            <h1>Массаж</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Optio tempore dolore praesentium.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider__item">
-                    <div class="slide_cont">
-                        <div class="img_cont"><img src="" alt=""></div>
-                        <div class="text_cont">
-                            <h1>Массаж</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Optio tempore dolore praesentium.</p>
-                        </div>
-                    </div>
-                </div>
+            <? include "slides.php"; ?>
 
             </div>
             

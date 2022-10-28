@@ -622,6 +622,7 @@ header.mobile .container .telephone_number:hover {
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
+  border-radius: 66px;
 }
 
 #SlickSlider .container .slide_cont .text_cont {
