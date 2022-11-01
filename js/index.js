@@ -48,6 +48,10 @@ $(function(){//menu goto
     $(".go_to").on("click",function(event){
         event.preventDefault();
 
+        if (window.location.pathname != $("nav li a").attr("href")){
+            $(location).attr('href', $(this).attr("href") );
+        }
+        
         let scroll_to_element = $(this).attr("data-scroll_to");
         let element_top_tors = $(scroll_to_element).offset().top;
         if ( $(window).width() > 776 ){
@@ -58,12 +62,13 @@ $(function(){//menu goto
             $(".black_bg").toggleClass("active");
         }
 
+
         $("html, body").animate({scrollTop: element_top_tors}, 1000);
 
     });
 })
 
-// Инициализация слайдера
+// Инициализация слайдера на главной странице
 $(function(){
     $("#SlickSlider .slider").slick({
         arrows: true,
@@ -115,3 +120,68 @@ $(function(){
     });
     
 })
+
+// Инициализация слайдера на детальной странице просмотра новости
+$(function(){
+    $("#detaile_news .slider .slides_cont").slick({
+        arrows: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 3500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '40px',
+        swipe: false,
+        prevArrow: $("#detaile_news .slider_arrows .prev"),
+        nextArrow: $("#detaile_news .slider_arrows .next"),
+        responsive:[
+            {
+                breakpoint:1440,
+                settings:{
+                    centerPadding: '20px',
+                },
+            },
+            {
+                breakpoint:992,
+                settings:{
+                    centerPadding: '35px',
+                },
+            },
+            {
+                breakpoint:776,
+                settings:{
+                    centerPadding: '20px',
+                    slidesToShow: 5,
+                    swipe: true,
+                    focusOnSelect: true,
+                },
+            },
+            {
+                breakpoint:620,
+                settings:{
+                    centerPadding: '20px',
+                    slidesToShow: 3.5,
+                    swipe: true,
+                    focusOnSelect: true,
+                },
+            },
+            {
+                breakpoint:450,
+                settings:{
+                    centerPadding: '10px',
+                    slidesToShow: 3,
+                    swipe: true,
+                    focusOnSelect: true,
+                },
+            },
+        ],
+    });
+})
+
+$(function(){//смена главного фото при пролистывании detail_news
+    $("#detaile_news .slider .slides_cont").on('afterChange', function(event, slick, currentSlide, nextSlide){
+        let image_href = $("#detaile_news .slide_cont.slick-current.slick-center img").attr("src");
+        $("#detaile_news .img_container .big_img img").attr("src", image_href);
+    });
+});

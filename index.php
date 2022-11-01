@@ -1,105 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="/fonts/fonts.css">
-    <link rel="stylesheet" href="./css/lightbox.min.css">
-    <script src="./js/lib/jquery.js"></script>
-    <script src="./js/lib/slick.min.js"></script>
-    <title>Новая ты</title>
-</head>
-<body>
-
-    <div id="to_top_btn"></div>
-
-    <div class="price_list hide">
-        <div class="price_list_cont">
-            <div class="price_list_header">
-                <div class="img_cont">
-                    <a class="close_price_list" href="">
-                        <img src="./media/ikons/cross.svg" alt="">
-                    </a>
-                </div>
-            </div>
-
-            <div class="logo_cont">
-                <img src="./media/ikons/full_logo.svg" alt="">
-                <h1>Наши услуги</h1>
-            </div>
-
-            <div class="wrapper" id="price_list">
-                <div class="container">
-
-                    <? include "price_list.php"; ?>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <header class="desktop" >
-        <div class="top_line">
-            <div class="wrapper">
-                <div class="container">
-                    <a class="telephone_number" href="">+7 (913) 438-18-47</a>
-                    <span class="">г.Ленинск-Кузнецкий, Проспект Кирова, 52Б</span>
-                    <div class="social_ikons_cont">
-                        <a href=""><img src="./media/ikons/telegram.svg" alt=""></a>
-                        <a href=""><img src="./media/ikons/vk.svg" alt=""></a>
-                    </div>
-                </div>
-            </div>            
-        </div>
-        <div class="logo_cont">
-            <div class="wrapper">
-                <a class="img_cont" href="/">
-                    <img src="./media/ikons/full_logo.svg" alt="">
-                </a>
-            </div>
-        </div>
-        <nav>
-            <div class="wrapper">
-            <?include "menu.php";?>
-            </div>
-        </nav>
-    </header>
-
-    <header class="mobile">
-        <div class="wrapper main_line">
-            <div class="container">
-                <a href="" class="burger_btn">
-                    <img src="./media/ikons/burger_menu.svg" alt="">
-                </a>
-                <a href="" class="telephone_number">+7 (913) 438-18-47</a>
-            </div>
-        </div>
-        <div class="burger_menu close">
-            <div class="main_line">
-                <a href="" class="burger_btn">
-                    <img src="./media/ikons/burger_menu.svg" alt="">
-                </a>
-                <span>г.Ленинск-Кузнецкий,<br> Проспект Кирова, 52Б</span>
-            </div>
-            <nav>
-            <?include "menu.php";?>
-            </nav>
-            <div class="logo_container">
-                <div class="img_cont">
-                    <img src="./media/ikons/full_logo.svg" alt="">
-                </div>
-            </div>
-            <div class="ikons_cont">
-                <a href="" class="ikon"><img src="./media/ikons/telegram.svg" alt=""></a>
-                <a href="" class="ikon"><img src="./media/ikons/vk.svg" alt=""></a>
-            </div>
-        </div>
-        <div class="black_bg"></div>
-    </header>
-
+<? require("./moduls/header.php"); ?>
+<? require("./moduls/bd_connect.php"); ?>
 
     <div class="banner">
         <a href="" class="side open_price_list">
@@ -122,7 +22,7 @@
                 <p>В салоне "Новая ты"абсолютно все направлено на то,
                     чтобы каждый посетитель почувствовал себя самым
                     желанным гостем, и провел время с максимумом комфорта и пользы</p>
-                <a class="open_price_list" href="">Ознакомится с услугами</a>
+                <a class="open_price_list" href="">Ознакомиться с услугами</a>
             </div>
 
         </div>
@@ -133,8 +33,8 @@
         <div class="container">
 
             <div class="slider">
-
-            <? include "slides.php"; ?>
+            
+            <? require("./moduls/slides.php"); ?>
 
             </div>
             
@@ -145,6 +45,56 @@
 
         </div>
     </div>
+
+    <? //блок новостей (разкоментить когда будет минимум 4 новости) ?>
+    <?$data_last_news = get_quary("SELECT*FROM news ORDER BY id DESC LIMIT 4", $connect);
+    $data_last_news[0]["date"] = date('d-m-Y', strtotime($data_last_news[0]["date"]));
+    $data_last_news[0]["Preview_text"] = substr($data_last_news[0]["Detailed_text"], 0, 150)."...";
+
+if ( count( $data_last_news ) == 4 ):?>
+    
+    <div class="wrapper" id="pre_news">
+        <div class="container">
+            <h1>Новости:</h1>
+            <div class="main_news">
+                <a href="./detail_news.php?news_id=<?=$data_last_news[0]["id"];?>" class="img_cont">
+                    <img src=".\media\news_img\<?=$data_last_news[0]["preview_img_href"];?>" alt="">
+                </a>
+                <div class="text_cont">
+                    <a href="./detail_news.php?news_id=<?=$data_last_news[0]["id"];?>"><?=$data_last_news[0]["title"];?></a>
+                    <h2><?=$data_last_news[0]["date"];?></h2>
+                    <p><?=$data_last_news[0]["Preview_text"];?></p>
+                    <a href="./news.php" class="all_news">Все новости</a>
+                </div>
+            </div>
+            
+            <div class="news_row">
+                <?foreach ($data_last_news as $key => $value):
+                    if( $key > 0 ):
+                    $value["date"] = date('d-m-Y', strtotime($value["date"]));
+                    $value["Preview_text"] = substr($value["Detailed_text"], 0, 70)."...";
+                    ?>
+
+                    <div class="item">
+                        <a href="./detail_news.php?news_id=<?=$value["id"];?>" class="img_cont">
+                            <img src=".\media\news_img\<?=$value["preview_img_href"];?>" alt="">
+                        </a>
+                        <div class="text_cont">
+                            <a href="./detail_news.php?news_id=<?=$value["id"];?>"><?=$value["title"];?></a>
+                            <h2><?=$value["date"];?></h2>
+                            <p><?=$value["Preview_text"];?></p>
+                        </div>
+                    </div>
+
+            
+                <?endif;?>
+                <?endforeach;?>
+            </div>
+        </div>
+    </div>
+<?endif;?>
+
+
 
     <!-- img_block -->
     <div class="wrapper" id="img_block">
@@ -159,47 +109,4 @@
         </div>
     </div>
 
-    <!-- footer -->
-    <footer id="contacts">
-        <div class="wrapper">
-            <div class="container">
-
-                <div class="info_block">
-                    <div class="map_container">
-                        <!-- Короткая ссылка на карту: https://clck.ru/32HrH9 -->
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A724fb2f8275ce464192d0f4168e53222b62ed616a25a9d98f0329611d070ab13&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
-                    </div>
-                    <div class="info_row">
-                        <div class="info_elem">
-                            <h1>Номер телефона:</h1>
-                            <a href="">+7 (913) 438-18-47</a>
-                        </div>
-                        <div class="info_elem">
-                            <h1>Часы работы:<br>9:00-21:00</h1>
-                        </div>
-                        <div class="info_elem">
-                            <h1>Проспект Кирова, 52Б</h1>
-                        </div>
-                    </div>
-                    
-                    <div class="btn_cont">
-                        <a target="_blank" href="https://clck.ru/32HrH9">Открыть на карте</a>
-                    </div>
-                </div>
-
-                
-                <div class="mocup_block">
-                    <img src="./media/img/mocup.png" alt="">
-                </div>
-
-            </div>
-        </div>
-        <div class="footer_bg"></div>
-    </footer>
-
-
-
-</body>
-<script src="./js/index.js"></script>
-<script src="./js/lib/lightbox.min.js"></script>
-</html>
+<? require("./moduls/footer.php"); ?>
