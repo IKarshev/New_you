@@ -69,7 +69,7 @@
     
     <?foreach ($last_news_data as $key => $value):?>
         <?
-            $value["Preview_text"] = substr($value["Detailed_text"], 0, 64)."...";
+            $value["Preview_text"] = mb_substr($value["Detailed_text"], 0, 64)."...";
             $value["date"] = date('d-m-Y', strtotime($value["date"]));
         ?>
 
