@@ -10,6 +10,7 @@
     <script src="./js/lib/jquery.js"></script>
     <script src="./js/lib/slick.min.js"></script>
     <title>Новая ты <?=$page_title?></title>
+    <?include($_SERVER["DOCUMENT_ROOT"]."/functions.php");?>
 </head>
 <body>
     <div id="to_top_btn"></div>
