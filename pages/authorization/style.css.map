@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,CAAC,CAAA;EACG,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;CACb",
     "sources": [
-        "personal_account.scss"
+        "style.scss"
     ],
     "names": [],
-    "file": "personal_account.css"
+    "file": "style.css"
 }

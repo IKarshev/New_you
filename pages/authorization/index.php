@@ -13,8 +13,8 @@
 </head>
 <body>
 
-
-    <h1>Работает</h1>
+    
+    
 </body>
 
 <script src="index.js"></script>
