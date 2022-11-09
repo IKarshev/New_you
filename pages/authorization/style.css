@@ -2,4 +2,417 @@
   margin: 0;
   padding: 0;
 }
+
+/*scss option*/
+.auth_form .form_bg form.enter button, .auth_form .form_bg form.register button {
+  font-family: Mail_Sans_Roman_Med_DemBd;
+  font-weight: 600;
+  line-height: 90%;
+  letter-spacing: -0.5px;
+}
+
+.auth_form .tab a, .auth_form .form_bg form.enter input, .auth_form .form_bg form.register input {
+  font-family: Mail_Sans_Roman_Med_regular;
+  font-weight: 400;
+  line-height: 90%;
+}
+
+.auth_form .form_bg form.register .error_message, .auth_form .form_bg form.register .checkbox_cont span {
+  font-family: Mail_Sans_Roman_Med_regular;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+/* .scss option*/
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@-webkit-keyframes shake {
+  25% {
+    -webkit-transform: translateX(4px);
+            transform: translateX(4px);
+  }
+  50% {
+    -webkit-transform: translateX(-4px);
+            transform: translateX(-4px);
+  }
+  75% {
+    -webkit-transform: translateX(4px);
+            transform: translateX(4px);
+  }
+}
+
+@keyframes shake {
+  25% {
+    -webkit-transform: translateX(4px);
+            transform: translateX(4px);
+  }
+  50% {
+    -webkit-transform: translateX(-4px);
+            transform: translateX(-4px);
+  }
+  75% {
+    -webkit-transform: translateX(4px);
+            transform: translateX(4px);
+  }
+}
+
+.auth_form {
+  max-width: 511px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.auth_form .tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth_form .tab a {
+  font-size: 24px;
+  padding: 41px 0;
+  color: #fff;
+  background-color: #B93160;
+  text-decoration: none;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.auth_form .tab a.active {
+  background-color: #fff;
+  color: #B93160;
+}
+
+.auth_form .tab a:not(.active):hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  background-color: #d44a7b;
+}
+
+.auth_form .tab a.enter {
+  width: 190px;
+}
+
+.auth_form .tab a.register {
+  width: 321px;
+}
+
+.auth_form .form_bg {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 54px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.auth_form .form_bg form.enter {
+  display: none;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth_form .form_bg form.enter.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.auth_form .form_bg form.enter input {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: 18px 0 18px 24px;
+  border: none;
+  background-color: #E7EAF3;
+  font-size: 20px;
+  color: #2C2D2E;
+  margin-bottom: 24px;
+}
+
+.auth_form .form_bg form.enter input::-webkit-input-placeholder {
+  color: rgba(44, 45, 46, 0.5);
+}
+
+.auth_form .form_bg form.enter input:-ms-input-placeholder {
+  color: rgba(44, 45, 46, 0.5);
+}
+
+.auth_form .form_bg form.enter input::-ms-input-placeholder {
+  color: rgba(44, 45, 46, 0.5);
+}
+
+.auth_form .form_bg form.enter input::placeholder {
+  color: rgba(44, 45, 46, 0.5);
+}
+
+.auth_form .form_bg form.enter input:focus {
+  outline: none;
+}
+
+.auth_form .form_bg form.enter button {
+  width: 100%;
+  font-size: 32px;
+  color: #fff;
+  background-color: #B93160;
+  padding: 18px 0;
+  border: none;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.auth_form .form_bg form.enter button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  background-color: #d44a7b;
+}
+
+.auth_form .form_bg form.register {
+  display: none;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.auth_form .form_bg form.register.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.auth_form .form_bg form.register input {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: 18px 0 18px 24px;
+  background-color: #E7EAF3;
+  font-size: 20px;
+  color: #2C2D2E;
+  margin-bottom: 14px;
+  border: 1px solid rgba(237, 10, 52, 0);
+}
+
+.auth_form .form_bg form.register input::-webkit-input-placeholder {
+  color: rgba(44, 45, 46, 0.5);
+}
+
+.auth_form .form_bg form.register input:-ms-input-placeholder {
+  color: rgba(44, 45, 46, 0.5);
+}
+
+.auth_form .form_bg form.register input::-ms-input-placeholder {
+  color: rgba(44, 45, 46, 0.5);
+}
+
+.auth_form .form_bg form.register input::placeholder {
+  color: rgba(44, 45, 46, 0.5);
+}
+
+.auth_form .form_bg form.register input:focus {
+  outline: none;
+}
+
+.auth_form .form_bg form.register input.error {
+  -webkit-animation: shake .3s;
+          animation: shake .3s;
+  background-color: rgba(237, 10, 52, 0.5);
+  color: #fff;
+  border: 1px solid #ed0a34;
+}
+
+.auth_form .form_bg form.register input.valid {
+  background-color: #E7EAF3;
+  color: #2C2D2E;
+  border: 1px solid rgba(237, 10, 52, 0);
+}
+
+.auth_form .form_bg form.register button {
+  width: 100%;
+  font-size: 32px;
+  color: #fff;
+  background-color: #B93160;
+  padding: 18px 0;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.auth_form .form_bg form.register button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  background-color: #d44a7b;
+}
+
+.auth_form .form_bg form.register .error_message {
+  display: none;
+  font-size: 16px;
+  color: #ED0A34;
+  margin-top: 14px;
+}
+
+.auth_form .form_bg form.register .error_message.active {
+  display: block;
+}
+
+.auth_form .form_bg form.register .checkbox_cont {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 4px;
+}
+
+.auth_form .form_bg form.register .checkbox_cont input {
+  padding: 0;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 10px 0 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #919399;
+  background-color: rgba(185, 49, 96, 0);
+  position: relative;
+}
+
+.auth_form .form_bg form.register .checkbox_cont input.error {
+  border: 1px solid #ED0A34;
+  background-color: rgba(237, 10, 52, 0.5);
+}
+
+.auth_form .form_bg form.register .checkbox_cont input:checked::after {
+  content: "";
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #b93160;
+  margin: 0;
+}
+
+.auth_form .form_bg form.register .checkbox_cont span {
+  color: #919399;
+  font-size: 12px;
+}
+
+.auth_form .form_bg form.register .checkbox_cont span a {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: #B93160;
+  text-decoration: underline;
+}
+
+.auth_form .form_bg form.register .checkbox_cont span a:hover {
+  -webkit-transition: .2s;
+  transition: .2s;
+  color: rgba(45, 45, 45, 0.5);
+}
+
+@media (max-height: 800px) {
+  body {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .auth_form {
+    width: 100vw;
+    margin: 0 10px;
+  }
+  .auth_form .tab {
+    width: 100%;
+  }
+  .auth_form .tab a.enter {
+    width: 150px;
+  }
+  .auth_form .tab a.register {
+    width: 100%;
+  }
+  .auth_form .form_bg {
+    padding: 24px;
+  }
+  .auth_form .form_bg form.register input {
+    font-size: 16px;
+  }
+  .auth_form .form_bg form.register button {
+    font-size: 16px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
