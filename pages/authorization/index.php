@@ -21,28 +21,34 @@
 
     <div class="auth_form">
         <div class="tab">
-            <a href="" class="enter active">Вход</a>
-            <a href="" class="register">Регистрация</a>
+            <a href="" class="enter <?if ( ($_GET["tab"] == "enter") || (!isset($_GET["tab"])) ){echo "active";};?>">Вход</a>
+            <a href="" class="register <?if ($_GET["tab"] == "register"){echo "active";};?>">Регистрация</a>
         </div>
         <div class="form_bg">
 
-            <form action="" id="enter_form" class="enter active">
+            <form action="" id="enter_form" class="enter <?if ( ($_GET["tab"] == "enter") || (!isset($_GET["tab"])) ){echo "active";};?>">
 
                 <input name="tel_number" placeholder="Номер телефона" type="tel">
                 <input name="password" placeholder="Пароль" type="password">
-
+                <?if ($_GET["reg"] == "success"):?>
+                    <div class="success_message">Регистрация пройдена успешно, авторизируйтесь</div>
+                <?endif;?>
+                <?if ($_GET["reg"] == "error"):?>
+                    <div class="error_message">Неверный логин или пароль</div>
+                <?endif;?>
+                <!-- вывод ошибки при авторизации -->
                 <button type="submit">Вход</button>
             </form>
 
 
 
-            <form action="" id="register_form" class="register">
-                <input type="text" placeholder="Имя*" name="Name">
-                <input type="text" placeholder="Фамилия*" name="Surname">
-                <input type="tel" placeholder="Номер телефона*" name="tel_number">
-                <input type="email" placeholder="E-mail" name="Email">
-                <input id="password" type="password" placeholder="Пароль*" name="password">
-                <input type="password" placeholder="Подтвердите пароль*" name="Confirm_password">
+            <form action="" id="register_form" class="register <?if ($_GET["tab"] == "register"){echo "active";};?>">
+                <input value="" type="text" placeholder="Имя*" name="Name">
+                <input value="" type="text" placeholder="Фамилия*" name="Surname">
+                <input value="" type="tel" placeholder="Номер телефона*" name="tel_number">
+                <input value="" type="email" placeholder="E-mail" name="Email">
+                <input value="" id="password" type="password" placeholder="Пароль*" name="password">
+                <input value="" type="password" placeholder="Подтвердите пароль*" name="Confirm_password">
 
                 <div class="checkbox_cont">
                     <input type="checkbox" name="confirm_personal_data" id="">

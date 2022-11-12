@@ -112,13 +112,42 @@ header{
     .logo_cont{
         padding: 16px 0;
         border-bottom: 1px solid #d2d2d2;
-        .img_cont{
-            text-decoration: none;
-            width: 387px;
-            img{
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
+        .container{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            position: relative;
+            .img_cont{
+                display: block;
+                box-sizing: border-box;
+                text-decoration: none;
+                width: 387px;
+                img{
+                    user-select: none;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            .log_in{
+                position: absolute;
+                top: 0;
+                right: 0;
+                @extend %subtitle;
+                font-size: 16px;
+                color: $black;
+                user-select: none;
+                a{
+                    user-select: auto;
+                    @extend %subtitle;
+                    font-size: inherit;
+                    color: inherit;
+                    text-decoration: none;
+                    &:hover{
+                        transition: .2s;
+                        color: #B93160;
+                    }
+                }
             }
         }
     }
@@ -1378,6 +1407,12 @@ footer{
 
 }
 
+header .burger_menu .user_account .log_in{
+    @extend %subtitle;
+    a{
+        @extend %subtitle;
+    }
+}
 @media (max-width:776px){
     .container{
         max-width: none;
@@ -1471,6 +1506,30 @@ footer{
                         width: 100%;
                         height: 100%;
                         object-fit: contain;
+                    }
+                }
+            }
+            .user_account{
+                width: calc(100% + 20px );
+                display: flex;
+                justify-content: center;
+                margin-right: 10px;
+                margin-bottom: 24px;
+                position: relative;
+                left: -10px;
+                .log_in{
+                    font-size: 18px;
+                    color: $black;
+                    user-select: none;
+                    a{
+                        user-select: auto;
+                        font-size: inherit;
+                        color: inherit;
+                        text-decoration: none;
+                        &:hover{
+                            transition: .2s;
+                            color: #B93160;
+                        }
                     }
                 }
             }

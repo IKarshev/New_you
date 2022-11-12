@@ -106,7 +106,38 @@ $(function(){
     });
 
     // валидация формы авторизации
-    // $(".auth_form form.enter").validate();
+    $(".auth_form form.enter").validate({
+        rules: {
+            tel_number:{required: true,},
+            password:{required: true,},
+        },
+        messages: {
+            tel_number:{required: "Обязательное поле Номер телефона* не заполнено",},
+            password:{required:"Обязательное поле Пароль* не заполнено",},
+        },
+        submitHandler: function(form, event) {
+            event.preventDefault();
+            $.ajax({
+                url: './auth.php',
+                method: 'post',
+                dataType: 'html',
+                async: false,
+                data: {
+                    tel_number : $(".auth_form #enter_form input[name='tel_number']").val().replaceAll("+","").replaceAll(" ","").replaceAll("(","").replaceAll(")","").replaceAll("-","").replaceAll("","").replaceAll("_",""),
+                    password: $(".auth_form #enter_form input[name='password']").val(),
+                },
+                success: function(data){
+                    console.log(data);
+                    if (data == "success"){
+                        window.location.href = "../../index.php";
+                    } else {
+                        window.location.href = "./index.php?tab=enter&reg=error";
+                    };
+                },
+            });
+
+        },
+    });
 
 
 
@@ -148,11 +179,32 @@ $(function(){
             $(".auth_form form.register .error_message").removeClass("active");
         },
 
-        // submitHandler: function(event) {
-        //     event.preventDefault();
-        //     console.log("Форма работает");
-        // },
+        submitHandler: function(form, event) {
+            event.preventDefault();
+        
+            $.ajax({
+                url: './register.php',
+                method: 'post',
+                dataType: 'html',
+                async: false,
+                data: {
+                    name : $(".auth_form #register_form input[name='Name']").val(),
+                    surname: $(".auth_form #register_form input[name='Surname']").val(),
+                    tel_number: $(".auth_form #register_form input[name='tel_number']").val().replaceAll("+","").replaceAll(" ","").replaceAll("(","").replaceAll(")","").replaceAll("-","").replaceAll("","").replaceAll("_",""),
+                    email: $(".auth_form #register_form input[name='Email']").val(),
+                    password: $(".auth_form #register_form input[name='password']").val(),
+                },
+                success: function(data){
+                    console.log(data);
+                    console.log( typeof(data) );
+                    if (data == "success"){
+                        window.location.href = "./index.php?tab=enter&reg=success";
+                    }
+                },
+            });
 
+        },
+        // Mrforki13052002-
 
         messages: {
             Name:{required: "Обязательное поле Имя* не заполнено",},

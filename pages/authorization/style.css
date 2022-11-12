@@ -17,7 +17,7 @@
   line-height: 90%;
 }
 
-.auth_form .form_bg form.register .error_message, .auth_form .form_bg form.register .checkbox_cont span {
+.auth_form .form_bg form.enter .success_message, .auth_form .form_bg form.enter .error_message, .auth_form .form_bg form.register .error_message, .auth_form .form_bg form.register .checkbox_cont span {
   font-family: Mail_Sans_Roman_Med_regular;
   font-weight: 400;
   line-height: 100%;
@@ -160,9 +160,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .auth_form .form_bg form.enter.active {
@@ -219,6 +219,16 @@ body {
   -webkit-transition: .5s;
   transition: .5s;
   background-color: #d44a7b;
+}
+
+.auth_form .form_bg form.enter .success_message {
+  font-size: 16px;
+  color: #0DC268;
+}
+
+.auth_form .form_bg form.enter .error_message {
+  font-size: 16px;
+  color: #ED0A34;
 }
 
 .auth_form .form_bg form.register {
@@ -400,7 +410,7 @@ body {
     width: 100%;
   }
   .auth_form .tab a.enter {
-    width: 150px;
+    width: 200px;
   }
   .auth_form .tab a.register {
     width: 100%;

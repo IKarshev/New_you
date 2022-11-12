@@ -1,6 +1,8 @@
 <? require("./moduls/header.php"); ?>
 <? require("./moduls/bd_connect.php"); ?>
 
+    <!-- <? print_r($_SESSION["user"]); ?> -->
+
     <div class="banner">
         <a href="" class="side open_price_list">
             <h1>Наши услуги</h1>

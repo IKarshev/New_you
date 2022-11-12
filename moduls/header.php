@@ -1,3 +1,4 @@
+<? session_start(); ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -56,9 +57,16 @@
         </div>
         <div class="logo_cont">
             <div class="wrapper">
-                <a class="img_cont" href="/">
-                    <img src="./media/ikons/full_logo.svg" alt="">
-                </a>
+                <div class="container">
+                    <a class="img_cont" href="/">
+                        <img src="./media/ikons/full_logo.svg" alt="">
+                    </a>
+                    <div class="log_in">
+                        <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php">Авторизация</a> 
+                        / 
+                        <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php?tab=register">Регистрация</a>
+                    </div>
+                </div>
             </div>
         </div>
         <nav>
@@ -90,6 +98,13 @@
             <div class="logo_container">
                 <div class="img_cont">
                     <img src="./media/ikons/full_logo.svg" alt="">
+                </div>
+            </div>
+            <div class="user_account">
+                <div class="log_in">
+                    <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php">Авторизация</a> 
+                    / 
+                    <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php?tab=register">Регистрация</a>
                 </div>
             </div>
             <div class="ikons_cont">
