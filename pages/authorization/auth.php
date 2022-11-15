@@ -8,7 +8,7 @@ $password=md5($_POST["password"]);
 
 // Нужно написать доп валидацию на стороне сервера
 
-$query = "SELECT UserName, Surname, TelephoneNumber, Email, UserPassword, Is_admin FROM Users WHERE TelephoneNumber = '$tel_number'";
+$query = "SELECT UserName, Surname, TelephoneNumber, Email, UserPassword, is_user_admin FROM Users WHERE TelephoneNumber = '$tel_number'";
 $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
 $result = mysqli_fetch_array($result);
 
@@ -19,7 +19,7 @@ if ($result["UserPassword"] == $password){
         "Surname" => $result["Surname"],
         "TelephoneNumber" => $result["TelephoneNumber"],
         "Email" => $result["Email"],
-        "Is_admin" => $result["Is_admin"],
+        "isadmin" => $result["is_user_admin"],
     ];
     echo "success";
 } else{

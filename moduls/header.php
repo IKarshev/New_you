@@ -1,4 +1,5 @@
-<? session_start(); ?>
+<? session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -61,11 +62,26 @@
                     <a class="img_cont" href="/">
                         <img src="./media/ikons/full_logo.svg" alt="">
                     </a>
+
+                    <?if (!isset($_SESSION["user"])):?>
                     <div class="log_in">
                         <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php">Авторизация</a> 
                         / 
                         <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php?tab=register">Регистрация</a>
                     </div>
+                    <?else:?>
+                        <div class="user_menu">
+                            <div class="main_row">
+                                <img src="<?=SITE_DEFAULT_PATH?>/media/ikons/user_ikon.svg" alt="" class="ikon1">
+                                <span><?=$_SESSION["user"]["Surname"]." ".$_SESSION["user"]["UserName"]?></span>
+                                <img src="<?=SITE_DEFAULT_PATH?>/media/ikons/user_profile_arrow.svg" alt="" class="ikon2">
+                            </div>
+                            <ul class="user_menu_list">
+                                <?require("./moduls/user_menu.php");?>
+                            </ul>
+
+                        </div>
+                    <?endif;?>
                 </div>
             </div>
         </div>

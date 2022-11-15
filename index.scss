@@ -149,6 +149,84 @@ header{
                     }
                 }
             }
+            .user_menu{
+                @extend %light_shadow;
+                background-color: #fff;
+                border-radius: 17px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                max-height: 36px;
+                overflow-y: hidden;
+                &:hover{
+                    max-height: none;
+                    transition: .3s;
+                    .main_row{
+                        .ikon2{
+                            transition: .3s;
+                            transform: rotate(90deg);
+                        }
+                    }
+                    .user_menu_list{
+                        transition: .3s;
+                        transform: translateY(0);
+                    }
+                }
+                .main_row{
+                    cursor: pointer;
+                    padding: 8px 16px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    img.ikon1{
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 6px;
+                    }
+                    img.ikon2{
+                        width: 12px;
+                        height: 12px;
+                    }
+                    span{
+                        @extend %subtitle;
+                        font-weight: 600;
+                        font-size: 16px;
+                        color: $black;
+                        margin-right: 6px;
+                    }
+                }
+                .user_menu_list{
+                    transform: translateY(-150%);
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    list-style:none;
+                    padding-bottom: 8px;
+                    li{
+                        display: block;
+                        box-sizing: border-box;
+                        width: 100%;
+                        padding: 4px 0 4px 16px;
+                        cursor: pointer;
+                        &:hover{
+                            transition: .3s;
+                            background-color: rgba(#000, .1);
+                            a{
+                                transition: inherit;
+                                color: $purple;
+                            }
+                        }
+                        a{
+                            text-decoration: none;
+                            @extend %subtitle;
+                            font-size: 14px;
+                            color: $black;
+                        }
+                    }
+                }
+            }
+
         }
     }
 

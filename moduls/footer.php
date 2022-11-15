@@ -36,9 +36,27 @@
         <div class="footer_bg"></div>
     </footer>
 
-
-
 </body>
+
+<script>
+    // close session
+    $(function(){
+        $(".exit_profile").on("click",function(event){
+            event.preventDefault();
+            $.ajax({
+                url: '<?=SITE_DEFAULT_PATH?>/moduls/exit_profile.php',
+                method: 'post',
+                dataType: 'html',
+                async: false,
+                success: function(data){
+                    window.location.reload(true);
+                },
+            });
+        });
+    })
+</script>
+
+
 <script src="./js/index.js"></script>
 <script src="./js/lib/lightbox.min.js"></script>
 </html>

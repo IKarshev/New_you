@@ -127,7 +127,6 @@ $(function(){
                     password: $(".auth_form #enter_form input[name='password']").val(),
                 },
                 success: function(data){
-                    console.log(data);
                     if (data == "success"){
                         window.location.href = "../../index.php";
                     } else {
@@ -195,8 +194,6 @@ $(function(){
                     password: $(".auth_form #register_form input[name='password']").val(),
                 },
                 success: function(data){
-                    console.log(data);
-                    console.log( typeof(data) );
                     if (data == "success"){
                         window.location.href = "./index.php?tab=enter&reg=success";
                     }
