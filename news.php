@@ -1,5 +1,5 @@
-<? require("./moduls/header.php"); ?>
-<? require("./moduls/bd_connect.php"); ?>
+<?require("./moduls/header.php");?>
+<?require("./moduls/bd_connect.php");?>
 
 <?
     if (  isset( $_GET["page"] ) ){$pagination_page = $_GET["page"];} else{$pagination_page = 1;};
@@ -51,4 +51,4 @@
 
 </div>
 
-<? require("./moduls/footer.php"); ?>
+<? require(SITE_DEFAULT_PATH."/moduls/footer.php"); ?>

@@ -1,0 +1,10 @@
+RewriteEngine On
+
+<IfModule mod_rewrite.c>
+    RewriteRule ^(([^/]+/)*[^.]+)$ /$1index.php [L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteCond  %{DOCUMENT_ROOT}/pages/$1 -f
+    RewriteRule ^(.*)$ pages/$1 [L,QSA]
+</IfModule>

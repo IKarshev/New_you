@@ -1,5 +1,4 @@
-<? session_start();
-?>
+<? session_start();?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -65,9 +64,9 @@
 
                     <?if (!isset($_SESSION["user"])):?>
                     <div class="log_in">
-                        <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php">Авторизация</a> 
+                        <a href="<?=SITE_DEFAULT_PATH?>/authorization/">Авторизация</a> 
                         / 
-                        <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php?tab=register">Регистрация</a>
+                        <a href="<?=SITE_DEFAULT_PATH?>/authorization/?tab=register">Регистрация</a>
                     </div>
                     <?else:?>
                         <div class="user_menu">
@@ -118,9 +117,9 @@
             </div>
             <div class="user_account">
                 <div class="log_in">
-                    <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php">Авторизация</a> 
+                    <a href="<?=SITE_DEFAULT_PATH?>/authorization/">Авторизация</a> 
                     / 
-                    <a href="<?=SITE_DEFAULT_PATH?>/pages/authorization/index.php?tab=register">Регистрация</a>
+                    <a href="<?=SITE_DEFAULT_PATH?>/authorization/?tab=register">Регистрация</a>
                 </div>
             </div>
             <div class="ikons_cont">
