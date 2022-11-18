@@ -107,21 +107,28 @@
                 </a>
                 <span>г.Ленинск-Кузнецкий,<br> Проспект Кирова, 52Б</span>
             </div>
-            <nav>
-            <?require("./moduls/menu.php");?>
-            </nav>
+
+            <nav><?require("./moduls/menu.php");?></nav><!-- Меню -->
+            
+            <?if (isset($_SESSION["user"])):?>
+                <nav><ul><?require("./moduls/user_menu.php");?></ul></nav><!-- Меню авторизованного -->
+            <?endif;?>
+
             <div class="logo_container">
                 <div class="img_cont">
                     <img src="./media/ikons/full_logo.svg" alt="">
                 </div>
             </div>
-            <div class="user_account">
+            <?if (!isset($_SESSION["user"])):?>
+            <div class="user_account">                
                 <div class="log_in">
                     <a href="<?=SITE_DEFAULT_PATH?>/authorization/">Авторизация</a> 
                     / 
                     <a href="<?=SITE_DEFAULT_PATH?>/authorization/?tab=register">Регистрация</a>
                 </div>
             </div>
+            <?endif;?>
+
             <div class="ikons_cont">
                 <a href="" class="ikon"><img src="./media/ikons/telegram.svg" alt=""></a>
                 <a href="" class="ikon"><img src="./media/ikons/vk.svg" alt=""></a>

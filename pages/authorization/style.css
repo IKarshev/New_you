@@ -11,7 +11,7 @@
   letter-spacing: -0.5px;
 }
 
-.auth_form .tab a, .auth_form .form_bg form.enter input, .auth_form .form_bg form.register input {
+.back_to_main, .auth_form .tab a, .auth_form .form_bg form.enter input, .auth_form .form_bg form.register input {
   font-family: Mail_Sans_Roman_Med_regular;
   font-weight: 400;
   line-height: 90%;
@@ -69,6 +69,22 @@ body {
     -webkit-transform: translateX(4px);
             transform: translateX(4px);
   }
+}
+
+.back_to_main {
+  text-decoration: none;
+  font-size: 16px;
+  color: #2D2D2D;
+  opacity: .7;
+  position: absolute;
+  left: 36px;
+  top: 36px;
+}
+
+.back_to_main:hover {
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 1;
 }
 
 .auth_form {
@@ -402,6 +418,10 @@ body {
 }
 
 @media (max-width: 540px) {
+  .back_to_main {
+    left: 10px;
+    opacity: 1;
+  }
   .auth_form {
     width: 100vw;
     margin: 0 10px;

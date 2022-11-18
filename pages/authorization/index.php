@@ -18,7 +18,7 @@
 
 </head>
 <body style="background-image: url('<?=SITE_DEFAULT_PATH?>/media/img/authorization_bg.png');">
-
+    <a href="<?=SITE_DEFAULT_PATH?>" class="back_to_main">На главную</a>
     <div class="auth_form">
         <div class="tab">
             <a href="" class="enter <?if ( ($_GET["tab"] == "enter") || (!isset($_GET["tab"])) ){echo "active";};?>">Вход</a>
@@ -39,7 +39,6 @@
                 <!-- вывод ошибки при авторизации -->
                 <button type="submit">Вход</button>
             </form>
-
 
 
             <form action="" id="register_form" class="register <?if ($_GET["tab"] == "register"){echo "active";};?>">
@@ -66,12 +65,6 @@
 <script src="index.js"></script>
 <script>
     $(function(){
-    
-
-
-    // $(".auth_form form.enter").validate();
-
-
     $("#register_form").validate({
         rules: {
             Email: {
@@ -88,8 +81,6 @@
             console.log("Форма работает");
         },
     });
-
-    // $(".auth_form form input[type='tel']").mask("+7(999)999-9999", {autoclear: false});
 });
 </script>
 </html>

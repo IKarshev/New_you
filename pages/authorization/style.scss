@@ -63,6 +63,21 @@ body{
     75% {transform: translateX(4px)}
 }
 
+.back_to_main{
+    text-decoration: none;
+    @extend %subtitle;
+    font-size: 16px;
+    color: $black;
+    opacity: .7;
+    position: absolute;
+    left: 36px;
+    top: 36px;
+    &:hover{
+        transition: .3s;
+        opacity: 1;
+    }
+}
+
 .auth_form{
     max-width: 511px;
     display: flex;
@@ -297,6 +312,10 @@ body{
 
 
 @media (max-width: 540px) {
+    .back_to_main{
+        left: 10px;
+        opacity: 1;
+    }
     .auth_form{
         width: 100vw;
         margin: 0 10px;

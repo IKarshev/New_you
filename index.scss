@@ -1550,7 +1550,12 @@ header .burger_menu .user_account .log_in{
                 transform: translateX(0);
             }
             nav{
-                margin-bottom: 72px;
+                padding-bottom: 0;
+                padding-top: 25px;
+                &:last-child{
+                    padding-top: 0;
+                    margin-bottom: 72px;
+                }
                 ul{
                     display: flex;
                     flex-direction: column;

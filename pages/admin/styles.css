@@ -11,13 +11,13 @@ body .main_field .tab .tab_title {
   letter-spacing: -0.5px;
 }
 
-body .left_column .tab_menu li a {
+body .left_column .tab_menu li a, body .left_column .back_to_main a {
   font-family: Mail_Sans_Roman_Med_regular;
   font-weight: 400;
   line-height: 90%;
 }
 
-#tab-users .table .row li {
+#tab-users .table .row li, #tab-users .table .row li.mob_title {
   font-family: Mail_Sans_Roman_Med_regular;
   font-weight: 400;
   line-height: 100%;
@@ -32,7 +32,45 @@ body {
   overflow: hidden;
 }
 
+body .black_bg {
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+
+body .black_bg.active {
+  display: block;
+}
+
+body .toggle_burger_menu {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 30px;
+  height: 18px;
+  text-decoration: none;
+}
+
+body .toggle_burger_menu img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 body .left_column {
+  -webkit-transition: 1s;
+  transition: 1s;
   height: 100%;
   width: 322px;
   position: absolute;
@@ -51,6 +89,12 @@ body .left_column {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  z-index: 3;
+}
+
+body .left_column .toggle_burger_menu {
+  position: unset;
+  margin-bottom: 36px;
 }
 
 body .left_column .logo {
@@ -85,6 +129,7 @@ body .left_column .logo img {
 body .left_column .tab_menu {
   width: 100%;
   list-style: none;
+  margin-bottom: 24px;
 }
 
 body .left_column .tab_menu li {
@@ -107,11 +152,33 @@ body .left_column .tab_menu li a.active {
   color: #B93160;
 }
 
+body .left_column .back_to_main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+body .left_column .back_to_main a {
+  position: absolute;
+  left: 0;
+  bottom: 24px;
+  color: #2D2D2D;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+body .left_column .back_to_main a:hover {
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: #B93160;
+}
+
 body .main_field {
   width: calc(100% - 358px);
   height: 100%;
   padding-left: 358px;
   overflow-y: scroll;
+  z-index: 0;
 }
 
 body .main_field .tab {
@@ -120,7 +187,6 @@ body .main_field .tab {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
-  height: 100%;
 }
 
 body .main_field .tab.active {
@@ -170,6 +236,12 @@ body .main_field .tab .tab_title {
   font-size: 20px;
 }
 
+#tab-users .table .row li.mob_title {
+  display: none;
+  font-size: 12px;
+  color: rgba(45, 45, 45, 0.4);
+}
+
 #tab-users .table .row li.id {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -202,11 +274,64 @@ body .main_field .tab .tab_title {
 
 @media (max-width: 1300px) {
   #tab-users .table .row {
-    -ms-grid-columns: 100px .7fr 1fr 1fr 2fr;
-        grid-template-columns: 100px .7fr 1fr 1fr 2fr;
-    -ms-grid-rows: 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: "id nameField surname tel_number email";
+    -ms-grid-columns: 50px .5fr .5fr 1fr 1fr;
+        grid-template-columns: 50px .5fr .5fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  body .left_column {
+    left: -100%;
+  }
+  body .left_column.active {
+    left: 0;
+  }
+  body .main_field {
+    padding-top: 50px;
+    width: 100%;
+    padding-left: 0;
+  }
+  body .toggle_burger_menu {
+    display: block;
+  }
+}
+
+@media (max-width: 750px) {
+  #tab-users .table {
+    margin-bottom: 100px;
+  }
+  #tab-users .table .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  #tab-users .table .row.title {
+    display: none;
+  }
+  #tab-users .table .row li {
+    margin-bottom: 6px;
+  }
+  #tab-users .table .row li.mob_title {
+    display: block;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  body .main_field .tab .tab_title {
+    font-size: 36px;
+    margin-bottom: 54px;
+  }
+  #tab-users .table {
+    position: relative;
+    left: -4px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

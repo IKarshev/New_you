@@ -1928,6 +1928,11 @@ footer .footer_bg {
             transform: translateX(0);
   }
   header .burger_menu nav {
+    padding-bottom: 0;
+    padding-top: 25px;
+  }
+  header .burger_menu nav:last-child {
+    padding-top: 0;
     margin-bottom: 72px;
   }
   header .burger_menu nav ul {

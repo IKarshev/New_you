@@ -12,10 +12,15 @@
     <title>Админ-панель</title>
 </head>
 <body>
+    <a href="" class="toggle_burger_menu"><img src="<?=SITE_DEFAULT_PATH?>/media/ikons/burger_menu.svg" alt=""></a>
+    <a href="" class="black_bg"></a>
     <div class="left_column">
+        <a href="" class="toggle_burger_menu"><img src="<?=SITE_DEFAULT_PATH?>/media/ikons/burger_menu.svg" alt=""></a>
         <a href="" class="logo"><img src="<?=SITE_DEFAULT_PATH?>/media/ikons/full_logo.svg" alt=""></a>
         <ul class="tab_menu"></ul>
-
+        <div class="back_to_main">
+            <a href="<?=SITE_DEFAULT_PATH?>">На главную страницу</a>
+        </div>
     </div>
     <div class="main_field">
 

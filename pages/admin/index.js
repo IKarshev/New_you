@@ -1,3 +1,5 @@
+// ===================================START_TAB_USERS===================================================
+
 $(function(){//Формирование меню табов
     $(".main_field .tab").each(function(index){
         let id = $(this).attr("data-tab_id");
@@ -35,3 +37,15 @@ $(function(){// Смена меню табов
 
     });
 });
+
+
+$(function(){// Меню бургер
+
+    $(".toggle_burger_menu, .black_bg").on("click",function(event){
+        event.preventDefault();
+
+        $(".left_column, .black_bg").toggleClass("active");
+
+    });
+});
+// ===================================END_TAB_USERS===================================================
