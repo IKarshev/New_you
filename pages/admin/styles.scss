@@ -67,7 +67,6 @@ body{
         }
     }
     .toggle_burger_menu{
-        position: absolute;
         top: 16px;
         left: 16px;
 
@@ -189,9 +188,61 @@ body{
             }
         }
     }
-}
+    .popups{
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2000;
+        .popup_black_bg{
+            cursor: pointer;
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(#000, .65);
+            z-index: 2001;
+            .close_popup{
+                display: block;
+                margin: 0;
+                box-sizing: border-box;
+                position: absolute;
+                top: 45px;
+                right: 45px;
+                height: 48px;
+                width: 48px;
+                text-decoration: none;
+                z-index: 2002;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    opacity: .7;
+                    &:hover{
+                        transition: .3s;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .popup{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2002;
+            transform: translate(-50%,-50%);
+        }
 
-#tab-users{
+    }
+
+
+}
+// =======================================START_TAB_USERS=====================================
+.tab#tab-users{
     .table{
         width: 100%;
         .row{
@@ -236,8 +287,326 @@ body{
         }
     }
 }
+// =======================================END_TAB_USERS=======================================
+
+// =======================================START_TAB_NEWS=====================================
+
+.tab#news{
+    .table{
+        width: 100%;
+        .row{
+            border-radius: 10px;
+            width: 100%;
+            padding: 8px 0 8px 8px;
+            background-color: #fff;
+            box-shadow: 0px 4px 32px rgba(0, 16, 61, 0.16);
+            list-style-type: none;
+            list-style: none;
+            margin-bottom: 12px;
+
+            display: grid;
+            grid-template-columns: 200px 1fr 3fr 1.5fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:"photo title detail_text ikons";
+            grid-column-gap: 36px;
+            &.news{
+                min-height: 200px;
+                max-height: 200px;
+            }
+
+            &.title{
+                background-color: $purple;
+                margin-bottom: 16px;
+                li{
+                    color: #fff    
+                }
+            }
+            li{
+                @extend %small_text;
+                color: $black;
+                font-size: 20px;
+                &.mob_title{
+                    display: none;
+                    @extend %small_text;
+                    font-size: 12px;
+                    color: rgba($black,.4);
+
+
+                }
+                &.photo{
+                    grid-area: photo;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        max-height: 200px;
+                        object-fit: cover;
+                    }
+                }
+                &.title{grid-area: title;}
+                &.detail_text{
+                    grid-area: detail_text;
+                    text-align: justify;
+                    line-height: 140%;
+                }
+                &.ikons{
+                    grid-area: ikons;
+                    a{
+                        text-decoration: none;
+                        width: 28px;
+                        height: 28px;
+                        img{
+                            width: inherit;
+                            height: inherit;
+                            object-fit: contain;
+                        }                    
+                    }
+                    .add_news{}
+                    .create_news{margin-right: 16px;}
+                    .delete_news{}
+                }
+            }      
+        }
+    }
+}
+
+.popup[data-popup_id*=add_news]{
+    background-color: #fff;
+    padding: 24px;
+    width: 400px;
+    max-width: 400px;
+    &.success{
+        border: 4px solid #0DC268;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        h1{
+            @extend %subtitle;
+            font-size: 24px;
+            color: $purple;
+            margin-bottom: 24px;
+        }
+        button{
+            @extend %subtitle;
+            font-size: 20px;
+            width: 100%;
+            text-align: center;
+            padding: 16px 0;
+            border: none;
+            background-color: $purple;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba($purple,.8);
+                transition: .6s;
+            }
+        }
+        .input_cont{
+            position: relative;
+            width: 100%;
+            margin-bottom: 24px;
+            .animated_placeholder{
+                position: absolute;
+                left: 24px;
+                top: 50%;
+                transform: translateY( -50% );
+                @extend %subtitle;
+                font-size: 20px;
+                color: $black;
+                opacity: .5;
+                padding: 2px 4px;
+                background-color: #fff;
+                pointer-events: none;
+            }
+            &.textarea .animated_placeholder{
+                top: 24px;
+            }
+            textarea{
+                max-width: 100%;
+                min-width: 100%;
+                width: 100%;
+                min-height: 150px;
+                padding: 16px 16px 16px 24px;
+            }
+            .input{
+                @extend %subtitle;
+                line-height: 140%;
+                letter-spacing: 1.5px;
+                font-size: 18px;
+                display: block;
+                box-sizing: border-box;
+                width: 100%;
+                padding: 16px 0 16px 24px;
+                outline: none;
+                border: 1px solid $purple;
+                border-radius: 8px;
+                color: $black;
+                &::placeholder{
+                    opacity: 0;
+                }
+                &:focus ~ .animated_placeholder, &:not(:placeholder-shown) ~ .animated_placeholder, &:hover ~ .animated_placeholder{
+                    transition-duration: .6s;
+                    top: 0;
+                    font-size: 16px;
+                    color: $purple;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .input-file-row {
+        display: inline-block;
+    }
+    .input-file {
+        position: relative;
+        display: inline-block;
+    }
+    .input-file span {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+        font-size: 14px;
+        vertical-align: middle;
+        color: #fff;
+        text-align: center;
+        border-radius: 4px;
+        background-color: $purple;
+        line-height: 22px;
+        height: 40px;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        border: none;
+        margin: 0;
+        transition: background-color 0.2s;
+    }
+    .input-file input[type=file] {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        display: block;
+        width: 0;
+        height: 0;
+    }
+     
+    // Focus
+    .input-file input[type=file]:focus + span {
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+     
+    // Hover/Active
+    .input-file:hover span {
+        background-color: rgba($purple,.7);
+    }
+    .input-file:active span {
+        background-color: rgba($purple,.7);
+    }
+     
+    // Disabled
+    .input-file input[type=file]:disabled + span {
+        background-color: #eee;
+    }
+     
+    // Список файлов
+    .input-file-list {
+        padding: 10px 0;
+    }
+    .input-file-list-item {
+        margin-bottom: 10px;
+        .make_main{
+            @extend %subtitle;
+            font-size:12px;
+            color:#ED0A34;
+            margin-left: 12px;
+            text-decoration: none;
+            &:hover{
+                transition:.2s;
+                color:rgba(#ED0A34,.75);
+            }
+        }
+        &.active .make_main{
+            color: #0DC268;
+            &:hover{
+                transition:.2s;
+                color:rgba(#0DC268,.75);
+            }
+        }
+    }
+    .input-file-list-remove {
+        color: red;
+        text-decoration: none;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+
+}
+
+.popup[data-popup_id*=delete_news]{
+    background-color: #fff;
+    padding: 24px;
+    max-width: 350px;
+    &.success{
+        border: 4px solid #0DC268;
+    }
+    h1{
+        @extend %subtitle;
+        font-size: 24px;
+        color: #B93160;
+        margin-bottom: 36px;
+        line-height: 140%;
+    }
+    .column{
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        a{
+            @extend %subtitle;
+            text-decoration: none;
+            border: 1px solid #2d2d2d;
+            padding: 16px 24px;
+            &.confirm{
+                color: #0DC268;
+                &:hover{
+                    transition: .5s;
+                    color: #fff;
+                    background-color: #0DC268;
+                    border: 1px solid #0DC268;
+                }
+            }
+            &.cancel{
+                color: #ED0A34;
+                &:hover{
+                    transition: .5s;
+                    color: #fff;
+                    background-color: #ED0A34;
+                    border: 1px solid #ED0A34;
+                }
+            }
+        }
+    }
+}
+
+
+.popup[data-popup_id*=create_news]{
+    background-color: #fff;
+    padding: 24px;
+}
+
+
+
+
+
+// =======================================END_TAB_NEWS=======================================
 @media (max-width:1300px) {
-    #tab-users .table .row{
+    .tab#tab-users .table .row{
         grid-template-columns: 50px .5fr .5fr 1fr 1fr;
     }
 }
@@ -262,7 +631,7 @@ body{
 }
 
 @media (max-width:750px) {
-    #tab-users .table{
+    .tab#tab-users .table{
         margin-bottom: 100px;
         .row{
             display: flex;
@@ -274,7 +643,7 @@ body{
         }
     }
 
-    #tab-users .table .row li{
+    .tab#tab-users .table .row li{
         margin-bottom: 6px;
         &.mob_title{
             display: block;
@@ -288,7 +657,7 @@ body{
         font-size: 36px;
         margin-bottom: 54px;
     }
-    #tab-users .table{
+    .tab#tab-users .table{
         position: relative;
         left: -4px;
     }

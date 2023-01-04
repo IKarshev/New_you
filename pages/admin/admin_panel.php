@@ -38,6 +38,18 @@
         <?endforeach;?>
         
     </div>
+    <?//=============================POP_UP_BLOCK===============================================?>
+    <div class="popups">
+
+        <?require("./popups.php");?>
+
+        
+        <div class="popup_black_bg close_popup"><?//задний фон pop-up?>
+            <a href="" class="close_popup">
+                <img src="<?=SITE_DEFAULT_PATH."/media/ikons/"?>close_popup.svg" alt="">
+            </a>
+        </div>
+    </div>
 
 
 
